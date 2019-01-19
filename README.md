@@ -16,8 +16,8 @@ mvn clean install
 
 
 ```
-hadoop jar maprdb-json-typecheck-0.0.1-SNAPSHOT.jar com.mapr.support.MaprDBJsonTypeFinder <json table> 
-<output directory> [optional comma seperated field names]
+$ hadoop jar maprdb-json-typecheck-0.0.1-SNAPSHOT.jar com.mapr.support.MaprDBJsonTypeFinder 
+<json table> <output directory> [optional comma seperated field names]
 ```
 
 ### Sample Usage:
@@ -39,10 +39,10 @@ maprdb mapr:>
 
 #### To find all field data types:
 ```
-hadoop jar maprdb-json-typecheck-0.0.1-SNAPSHOT.jar com.mapr.support.MaprDBJsonTypeFinder /tmp/json_tbl_test /tmp/json_tbl_type_output
+$ hadoop jar maprdb-json-typecheck-0.0.1-SNAPSHOT.jar com.mapr.support.MaprDBJsonTypeFinder \
+/tmp/json_tbl_test /tmp/json_tbl_type_output
 
 Output:
-
 $ hadoop fs -cat /tmp/json_tbl_type_output/*
 columnName=_id|java.lang.String=5|
 columnName=ts|java.lang.Double=1|java.lang.String=2|org.ojai.types.OTimestamp=2|
@@ -54,10 +54,10 @@ columnName=ts1|java.lang.Double=2|
 #### To find data types for subset of fields.
 
 ```
-hadoop jar maprdb-json-typecheck-0.0.1-SNAPSHOT.jar com.mapr.support.MaprDBJsonTypeFinder /tmp/json_tbl_test /tmp/json_tbl_type_subset_output "_id,ts"
+$ hadoop jar maprdb-json-typecheck-0.0.1-SNAPSHOT.jar com.mapr.support.MaprDBJsonTypeFinder \
+/tmp/json_tbl_test /tmp/json_tbl_type_subset_output "_id,ts"
 
 Output: 
-
 $ hadoop fs -cat /tmp/json_tbl_type_subset_output/*
 columnName=_id|java.lang.String=5|
 columnName=ts|java.lang.Double=1|java.lang.String=2|org.ojai.types.OTimestamp=2|
