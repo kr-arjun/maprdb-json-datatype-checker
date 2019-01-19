@@ -35,9 +35,9 @@ public class TypeCheckMapper extends Mapper<Value, Document, ColumnInfoPair, Lon
 	protected void setup(Mapper<Value, Document, ColumnInfoPair, LongWritable>.Context context)
 			throws IOException, InterruptedException {
 
-		String columns = context.getConfiguration().get("columns");
+		String columns = context.getConfiguration().get("fields");
 		if (StringUtils.isNotBlank(columns)) {
-			columnList = new ArrayList<String>(Arrays.asList(columns.split(" , ")));
+			columnList = new ArrayList<String>(Arrays.asList(columns.split(",")));
 			checkAllColumns = false;
 		}
 
