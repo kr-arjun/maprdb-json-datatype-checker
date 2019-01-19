@@ -36,7 +36,8 @@ maprdb mapr:> find /tmp/json_tbl_test
 5 document(s) found.
 maprdb mapr:>
 ```
-To find all field data types:
+
+#### To find all field data types:
 ```
 hadoop jar maprdb-json-typecheck-0.0.1-SNAPSHOT.jar com.mapr.support.MaprDBJsonTypeFinder /tmp/json_tbl_test /tmp/json_tbl_type_output
 
@@ -50,10 +51,12 @@ columnName=ts1|java.lang.Double=2|
 
 ```
 
-To find data types for subset of fields.
+#### To find data types for subset of fields.
 
 ```
 hadoop jar maprdb-json-typecheck-0.0.1-SNAPSHOT.jar com.mapr.support.MaprDBJsonTypeFinder /tmp/json_tbl_test /tmp/json_tbl_type_subset_output "_id,ts"
+
+Output: 
 
 $ hadoop fs -cat /tmp/json_tbl_type_subset_output/*
 columnName=_id|java.lang.String=5|
